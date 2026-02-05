@@ -51,6 +51,11 @@ function App() {
     setGameState(GAME_STATES.PLAYING);
   }, []);
 
+  const handleRegenerate = useCallback(() => {
+    setCurrentLocation(getRandomLocation());
+    setGuess(null);
+  }, []);
+
   if (loadError) {
     return (
       <div className={styles.errorContainer}>
@@ -78,6 +83,7 @@ function App() {
           onClick={handleSubmit}
           disabled={gameState === GAME_STATES.RESULT}
           hasGuess={!!guess}
+          onRegenerate={handleRegenerate}
         />
       </main>
 

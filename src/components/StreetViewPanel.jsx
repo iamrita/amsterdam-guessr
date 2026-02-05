@@ -5,6 +5,7 @@ const StreetViewPanel = ({ location, isLoaded }) => {
   const streetViewRef = useRef(null);
   const panoramaRef = useRef(null);
   const [status, setStatus] = useState('loading');
+  const [retryKey, setRetryKey] = useState(0);
 
   // Create the panorama instance ONCE when Google Maps loads
   useEffect(() => {
@@ -87,7 +88,11 @@ const StreetViewPanel = ({ location, isLoaded }) => {
         window.google.maps.event.removeListener(statusListener);
       }
     };
-  }, [isLoaded, location]);
+  }, [isLoaded, location, retryKey]);
+
+  const handleRetry = () => {
+    setRetryKey(prev => prev + 1);
+  };
 
   return (
     <div className={styles.container}>
@@ -104,7 +109,7 @@ const StreetViewPanel = ({ location, isLoaded }) => {
             <p className={styles.errorText}>Error loading Street View</p>
             <button 
               className={styles.retryButton}
-              onClick={() => window.location.reload()}
+              onClick={handleRetry}
             >
               Try Again
             </button>

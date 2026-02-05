@@ -47,6 +47,15 @@ const locations = [
   { lat: 52.3625, lng: 4.8888, name: "Leidseplein" },
   { lat: 52.3707, lng: 4.8900, name: "Spui Square" },
   { lat: 52.3659, lng: 4.9000, name: "Waterlooplein" },
+  
+  // Noord Amsterdam
+  { lat: 52.3903, lng: 4.9012, name: "A'DAM Lookout Tower" },
+  { lat: 52.3984, lng: 4.9020, name: "NDSM Wharf" },
+  { lat: 52.3915, lng: 4.9185, name: "Eye Film Museum" },
+  
+  // Eastern Docklands
+  { lat: 52.3764, lng: 4.9261, name: "Java Island" },
+  { lat: 52.3680, lng: 4.9325, name: "KNSM Island" },
 ];
 
 export const getRandomLocation = () => {
