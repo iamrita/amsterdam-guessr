@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { GoogleMap, Marker, Polyline } from '@react-google-maps/api';
 import { formatDistance } from '../utils/distance';
 import { AMSTERDAM_CENTER } from '../data/locations';
@@ -7,6 +7,7 @@ import styles from './ResultOverlay.module.css';
 const mapContainerStyle = {
   width: '100%',
   height: '100%',
+  minHeight: '200px',
 };
 
 const mapOptions = {
@@ -72,9 +73,28 @@ const ResultOverlay = ({
     }
   }, [actualLocation, guessLocation]);
 
-  const onMapLoad = (map) => {
+  // Handle window resize to ensure Google Maps re-renders properly
+  useEffect(() => {
+    const handleResize = () => {
+      if (mapRef.current && window.google?.maps?.event) {
+        window.google.maps.event.trigger(mapRef.current, 'resize');
+        // Re-fit bounds after resize
+        if (actualLocation && guessLocation) {
+          const bounds = new window.google.maps.LatLngBounds();
+          bounds.extend(actualLocation);
+          bounds.extend(guessLocation);
+          mapRef.current.fitBounds(bounds, { padding: 40 });
+        }
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [actualLocation, guessLocation]);
+
+  const onMapLoad = useCallback((map) => {
     mapRef.current = map;
-  };
+  }, []);
 
   const getScoreColor = () => {
     if (score >= 4500) return '#2845D6'; // Blue - great
