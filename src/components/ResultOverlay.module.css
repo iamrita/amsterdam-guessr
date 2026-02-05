@@ -1,0 +1,184 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.content {
+  display: flex;
+  gap: 2rem;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  max-width: 900px;
+  width: 90%;
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mapSection {
+  flex: 1;
+  min-height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.statsSection {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.message {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.scoreContainer {
+  text-align: center;
+}
+
+.scoreLabel {
+  font-size: 0.85rem;
+  color: #1A2CA3;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+
+.score {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.scoreMax {
+  font-size: 1rem;
+  color: #888888;
+  margin-top: 0.25rem;
+}
+
+.distanceContainer {
+  text-align: center;
+  padding: 1rem;
+  background: #f5f5f0;
+  border-radius: 12px;
+}
+
+.distanceLabel {
+  font-size: 0.8rem;
+  color: #1A2CA3;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.25rem;
+}
+
+.distance {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0D1A63;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #fafafa;
+  border-radius: 12px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: #0D1A63;
+}
+
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.playAgainButton {
+  background: #F68048;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(246, 128, 72, 0.3);
+  margin-top: auto;
+}
+
+.playAgainButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(246, 128, 72, 0.4);
+  background: #e5703a;
+}
+
+.playAgainButton:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    padding: 16px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .mapSection {
+    min-height: 250px;
+  }
+
+  .statsSection {
+    width: 100%;
+  }
+
+  .score {
+    font-size: 2.5rem;
+  }
+}
