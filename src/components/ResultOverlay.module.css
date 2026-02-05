@@ -48,6 +48,7 @@
 
 .mapSection {
   flex: 1;
+  min-width: 300px;
   min-height: 350px;
   border-radius: 12px;
   overflow: hidden;
@@ -162,7 +163,7 @@
   transform: translateY(0);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .content {
     flex-direction: column;
     padding: 16px;
@@ -171,6 +172,8 @@
   }
 
   .mapSection {
+    min-width: unset;
+    width: 100%;
     min-height: 250px;
   }
 
