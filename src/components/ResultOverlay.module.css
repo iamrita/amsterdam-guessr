@@ -48,6 +48,7 @@
 
 .mapSection {
   flex: 1;
+  min-width: 300px;
   min-height: 350px;
   border-radius: 12px;
   overflow: hidden;
@@ -56,6 +57,7 @@
 
 .statsSection {
   width: 280px;
+  flex-shrink: 0;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -162,7 +164,7 @@
   transform: translateY(0);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .content {
     flex-direction: column;
     padding: 16px;
@@ -171,14 +173,26 @@
   }
 
   .mapSection {
-    min-height: 250px;
+    min-width: unset;
+    width: 100%;
+    min-height: 280px;
   }
 
   .statsSection {
     width: 100%;
   }
+}
+
+@media (max-width: 480px) {
+  .mapSection {
+    min-height: 200px;
+  }
 
   .score {
     font-size: 2.5rem;
+  }
+
+  .message {
+    font-size: 1.5rem;
   }
 }
