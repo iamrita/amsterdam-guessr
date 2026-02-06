@@ -6,17 +6,18 @@
   height: 260px;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: #dcfce7;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(20, 83, 45, 0.1);
   z-index: 100;
-  background: #ffffff;
 }
 
 .container:hover,
 .container.expanded {
-  width: 550px;
-  height: 400px;
+  width: 620px;
+  height: 450px;
 }
 
 .mapWrapper {
@@ -25,16 +26,16 @@
 }
 
 .instructions {
-  height: 40px;
-  background: rgba(255, 255, 255, 0.95);
-  color: #0D1A63;
+  height: 44px;
+  background: rgba(187, 247, 208, 0.95);
+  color: #14532d;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.85rem;
+  font-size: 1.05rem;
   font-weight: 500;
   backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(13, 26, 99, 0.1);
+  border-top: 1px solid rgba(20, 83, 45, 0.1);
 }
 
 @media (max-width: 768px) {
@@ -54,7 +55,7 @@
   }
 
   .instructions {
-    height: 36px;
-    font-size: 0.75rem;
+    height: 40px;
+    font-size: 0.95rem;
   }
 }
