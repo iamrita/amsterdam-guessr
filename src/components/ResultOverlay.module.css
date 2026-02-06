@@ -171,11 +171,14 @@
   }
 
   .mapSection {
+    flex: 0 0 auto;
     min-height: 250px;
+    height: 250px;
   }
 
   .statsSection {
     width: 100%;
+    flex-shrink: 0;
   }
 
   .score {
