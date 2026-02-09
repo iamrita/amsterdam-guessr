@@ -22,7 +22,7 @@
 
 .mapWrapper {
   width: 100%;
-  height: calc(100% - 40px);
+  height: calc(100% - 44px);
 }
 
 .instructions {
@@ -57,5 +57,9 @@
   .instructions {
     height: 40px;
     font-size: 0.95rem;
+  }
+
+  .mapWrapper {
+    height: calc(100% - 40px);
   }
 }
